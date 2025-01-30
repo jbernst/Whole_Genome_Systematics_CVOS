@@ -23,4 +23,6 @@ This project (accepted in _Molecular Phylogenetics and Evolution_) involves a su
 With our genomic datasets, we perform various phylogenetic analyses. These will include: 
 * Maximum Likelihood analysis of 10 kb genomic windows was run using [bash scripts](Phylogenetic-Analyses/MaximumLikelihood.md)
 * Testing for phylogenetic reticulations was performed using PhyloNet and NANUQ in custom [bash and shell scripts](Phylogenetic-Analyses/ReticulationAnalyses.md).
+* Divergence Dating analyses using TreePL can be found [here](Phylogenetic-Analyses/DivergenceDating.md).
 * Topology weighting was done using the software TWISST in a [custom pipeline](Phylogenetic-Analyses/TopologyWeighting.md).
+
