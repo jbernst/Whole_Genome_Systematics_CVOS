@@ -36,7 +36,7 @@ With our genomic datasets, we perform various phylogenetic analyses. These will 
 ### Topological Heterogeneity throughout the Genome
 * To analyze the frequency of the species tree and alternative topologies across chromosomes, we used [TWISST](https://github.com/simonhmartin/twisst). Two versions (3 species dataset and the oreganus clade dataset) of the code are provided, with necessary input files. All files can be found here. For downloading the plot_twisst.R and twisst.py scripts, please go to [Simon Martin's Github](https://github.com/simonhmartin) and download them directory from Simon's repository.
 
-![Screenshot 2025-01-30 014314](https://github.com/user-attachments/assets/7bcae5ad-bc6b-4444-beab-b2dfcb992398)
-
 ## Citation
-If using or modifying the custom scripts from this repository, please cite the original paper in _Molecular Phylogenetics and Evolution_ (_in press_) and this Github Repository using the DOI:
+If using or modifying the custom scripts from this repository, please cite the original paper in _Molecular Phylogenetics and Evolution_ (_in press_) and this Github Repository using the DOI:[![DOI](https://zenodo.org/badge/924474668.svg)](https://doi.org/10.5281/zenodo.14774372)
+
+![Screenshot 2025-01-30 014314](https://github.com/user-attachments/assets/7bcae5ad-bc6b-4444-beab-b2dfcb992398)
