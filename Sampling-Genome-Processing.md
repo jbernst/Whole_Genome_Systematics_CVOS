@@ -21,10 +21,8 @@ The sampling for this project is:
 | CR0001    | CAS_223514        | Crotalus | ruber      | -          | USA     | California      | Imperial   | 33.1015   | -116.4653333 |
 | CS0153    | PFS0265-FTB01868  | Crotalus | scutulatus | scutulatus | USA     | AZ              | Greenlee   | 32.76791  | -109.14928   |
 | CS0027    | NTRC926           | Crotalus | scutulatus | scutulatus | USA     | AZ              | Pima       | 31.51524  | -110.59236   |
-| CS0224    | JAC_29080         | Crotalus | scutulatus | scutulatus | Mexico  | Chihuahua       | -          | 26.75709  | -106.04417   |
-| CS0237    | [FILL IN DETAILS] | Crotalus | scutulatus | scutulatus | -       | -               | -          | -         | -            |
-| CS0225    | JAC_29090         | Crotalus | scutulatus | scutulatus | Mexico  | Chihuahua       | -          | 26.91354  | -105.90472   |
-| CS0029    | X                 | Crotalus | scutulatus | scutulatus | USA     | Texas           | Culberson  | [FILL IN] | [FILL IN]    |
+| CS0237    | DRS379            | Crotalus | scutulatus | scutulatus | USA     | Texas           | Jeff Davis | 30.562    | -104.280     |
+| CS0029    | NTRC345           | Crotalus | scutulatus | scutulatus | USA     | Texas           | Culberson  | 31.267    | -104.843     |
 | CS0142    | NMB_037           | Crotalus | scutulatus | scutulatus | Mexico  | Aguascalientes  | -          | 22.26025  | -102.1769    |
 | CS0143    | NMB_038           | Crotalus | scutulatus | scutulatus | Mexico  | Aguascalientes  | -          | 22.26107  | -102.17521   |
 | CS0146    | OFV_1124          | Crotalus | scutulatus | salvini    | Mexico  | Puebla          | -          | 19.261495 | -97.531133   |
@@ -35,8 +33,7 @@ The sampling for this project is:
 | CV0732    | 050115RWCB        | Crotalus | oreganus   | caliginis  | Mexico  | Baja_California | -          | 32.40163  | -117.24311   |
 | CV0755    | CLP_1942          | Crotalus | oreganus   | cerberus   | USA     | Arizona         | Pima       | 32.30317  | -110.59197   |
 | CV0716    | BLF8              | Crotalus | oreganus   | cerberus   | USA     | Arizona         | Pima       | 32.160009 | -110.513091  |
-| CV0035    | CAS_170426        | Crotalus | oreganus   | concolor   | USA     | Utah            | San_Juan   | 38.22504  | -109.55204   |
-| CV0711    | X                 | Crotalus | oreganus   | concolor   | USA     | Utah            | Wayne      | [FILL IN] | [FILL IN]    |
+| CV0711    | BLF3              | Crotalus | oreganus   | concolor   | USA     | Utah            | Wayne      | 38.311    | -111.438     |
 | CV0040    | CAS_170462        | Crotalus | oreganus   | concolor   | USA     | Utah            | Uintah     | 40.36952  | -109.3349    |
 | CV0053    | CAS_228044        | Crotalus | oreganus   | helleri    | USA     | California      | San_Diego  | 32.693056 | -116.3611111 |
 | CV0054    | CAS_228048        | Crotalus | oreganus   | helleri    | USA     | California      | San_Diego_ | 32.813889 | -117.2433333 |
