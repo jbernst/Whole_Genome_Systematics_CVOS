@@ -65,8 +65,6 @@ have been called. Unless noted, the following workflows are for the May 2019 sam
 
 # Mapping to the *C. viridis* genome
 
-[On Norma][On Norma]]: ~/Desktop/ExtraDrive2/CVOS/
-
 We will trim and alig reads to the CroVir3.0 reference genome of *Crotalus viridis* ([Schield et al. 2019](http://www.genome.org/cgi/doi/10.1101/gr.240952.118)).
 
 Set up variant calling pipeline directories:
@@ -943,8 +941,6 @@ With our genomic datasets, we can now perform various phylogenetic analyses. The
 
 # Maximum Likelihood Tree Reconstruction (IQ-TREE2)
 
-All analyses for Maximum Likelihood are stored on Norma: `/home/administrator/Desktop/ExtraSSD2/Justin/phylogeny/IQTREE2`
-
 Maximum likelihood inference was performed using `iqtree2` [version 2.1.2](http://www.iqtree.org/release/v1.2.2/). For all analyses, we used 1000 ultrafast bootstraps (UFB; using the `-bb` flag). We could use Shimodaira-Hasegawa approximate likelihood tests, but we will skip that since we are running a lot computationally (~31,000 trees). The trees will be from 10kb alignments from macrochromosomes, microchromosomes, and the Z chromosomes that pass the missing data criteria for a mean of 35% and max. of 60%.
 
 with a list of *.fasta alignments in a directory called `chromosome`, I set a loop to iteratively run `iqtree2`, searching for the best partition scheme and evolutionary model for each alignment:
@@ -993,7 +989,7 @@ wait #wait that all job finish before continuing with the script.
 
 # Assessing Tree Discordance with Concordance Factors
 
-We can check to see how many genes and sites agree with our ASTRAL species tree using concordance factors (gCF and sCF) in `iqtree2`. To do this, all we need is a directory containing our alignment files and a single file with all of our gene trees (not really genes, they are 10kb window trees). To make the gene tree file, just go into a directory with your *.treefile files from iqtree2 and use `cat *.treefile > {chrom}_UFBtree.tre`. You can use any reference tree for this, but since we used ASTRAL for our species tree, let's use that as the reference; I exported it as a newick tree from `FigTree` and called this file `cvos.all.astral_newick.tre`. The files for concordance factors are on Justin's local Mac (Aundrea's old computer): `/Users/a108594/Documents/CVOS_Phylogeny/Analyses/concordance_factors`.
+We can check to see how many genes and sites agree with our ASTRAL species tree using concordance factors (gCF and sCF) in `iqtree2`. To do this, all we need is a directory containing our alignment files and a single file with all of our gene trees (not really genes, they are 10kb window trees). To make the gene tree file, just go into a directory with your *.treefile files from iqtree2 and use `cat *.treefile > {chrom}_UFBtree.tre`. You can use any reference tree for this, but since we used ASTRAL for our species tree, let's use that as the reference; I exported it as a newick tree from `FigTree` and called this file `cvos.all.astral_newick.tre`.
 
 As of 2022, sCFs and gCFs can be run with maximum likelihood, as opposed to parismony in versions of iqtree <2.2.2. However, due to the size of our dataset, we will run with parsimony. To run both gCFs and sCFs (with 8 cores), I ran the code as follows (this shows an example with a tree file of gene trees from macrochromosome 4 and a directory called `ma4` with alignment files):
 
@@ -1057,7 +1053,7 @@ InferNetwork_MPL (all) 5 -a <Outgroup:CA0346_atro,CR0001_rube; Sscutulatus:CS014
 END;
 ```
 
-Let's call this one `PhyloNet-ma5-IQ-5R.nex` (to symbolize the use of `PhyloNet` on IQ-TREE trees with a maximum of 5 reticulations allowed in our analysis); the PhyloNet input and output files are all stored on Norma (`/home/administrator/Desktop/ExtraSSD2/Justin/phylogeny/PHYLONET`).
+Let's call this one `PhyloNet-ma5-IQ-5R.nex` (to symbolize the use of `PhyloNet` on IQ-TREE trees with a maximum of 5 reticulations allowed in our analysis).
 
 To run the analysis, you simpled call upon the PhyloNet .jar file and give it the input file:
 
@@ -1363,177 +1359,6 @@ moredetailcvad
 #log_pen
 #seed = number 
 ```
-
-## SNAPP: Divergence Date Estimation using SNPs
-
-BEAST (and its packages) estimates of species trees and divergence dates are often favored for a vareity of reasons: greater accuracy (depending on who you ask and the data), use of more parameters, its long-lasting shelf life in the field, and its continuous updates. Though, with its intense parameter lists it can be daunting to use and quite easy to misspecify parameters and resulting models. Nonetheless, let's see if we can get more sensible dates out of this. We will download BEAST v2.7.7.
-
-To use SNAPP, we need to obtain a new VCF file that does not include the *C. oreganus hualapaiensis* samples and retain only biallelic SNPs for easier computation. We can take the origina vcf `cvos.32.phylogeny.final.vcf.gz` to do this in `vcftools`:
-
-```bash
-vcftools --gzvcf cvos.32.phylogeny.final.vcf.gz --remove-indv CV0725_hual --remove-indv CV0703_hual --min-alleles 2 --max-alleles 2 --recode --recode-INFO-all --stdout | bgzip -c > cvos.32.phylogeny.final.nohual.biallelic.vcf.gz
-```
-
-One we have this, we need to convert it into a `NEXUS` format alignment for SNAPP. There is a nifty package called [vcf2phylip](https://github.com/edgardomortiz/vcf2phylip) by Edgardo M. Moritz that can convert a VCF into multiple formats, like PHYLIP, NEXUS, and FASTA. It just requires that the VCF files are compressed with an extension of `.vcf.gz`.
-
-For this package, the code is as follows:
-
-```bash
-./vcf2phylip/vcf2phylip.py -i cvos.32.phylogeny.final.nohual.biallelic.thinned.100kb.vcf.gz -n --min-samples-locus 8 --output-prefix 100kb.25p
-```
-
-This will automatically create a PHYLIP but the `-n` will create the NEXUS file for us in addition. The --min-samples-locus is the minimum NUMBER of samples required to be present at a locus (default = 4). So let's try a 25% (8 samples), )50% (16 samples), 75% (24 samples), and 100% (32 samples) filtering scheme for min-samples and check the number of SNPs that pass filtering. The more SNPs the better, but only up to a point, as then things will become slow (so for example, maybe 75% is better and has more SNPs than 50% by just a little bit, so the 75% would be good to choose, but check):
-
-The four lines of code that were run were (for 25%, 50%, 75%, and 100%, in order):
-
-```bash
-./vcf2phylip/vcf2phylip.py -i cvos.32.phylogeny.final.nohual.biallelic.thinned.100kb.vcf.gz -n --min-samples-locus 8 --output-prefix 100kb.25p  
-./vcf2phylip/vcf2phylip.py -i cvos.32.phylogeny.final.nohual.biallelic.thinned.100kb.vcf.gz -n --min-samples-locus 16 --output-prefix 100kb.50p
-./vcf2phylip/vcf2phylip.py -i cvos.32.phylogeny.final.nohual.biallelic.thinned.100kb.vcf.gz -n --min-samples-locus 24 --output-prefix 100kb.75p
-./vcf2phylip/vcf2phylip.py -i cvos.32.phylogeny.final.nohual.biallelic.thinned.100kb.vcf.gz -n --min-samples-locus 32 --output-prefix 100kb.100p
-```
-
-The output files will automatically give you the min number of samples, so I like to have the prefix be the percent (XXp) so all information is in the outputfiles, which are shown as:
-
-```
-100kb.25p.min8.nexus
-100kb.25p.min8.phy
-100kb.50p.min16.nexus
-100kb.50p.min16.phy
-100kb.75p.min24.nexus
-100kb.75p.min24.phy
-100kb.100p.min32.nexus
-100kb.100p.min32.phy
-```
-
-The results of our runs were:
-
-| Percent Samples as Min-Samples | # SNPs Retained |
-| :----------------------------: | :-------------: |
-|              25%              |     5757676     |
-|              50%              |     5473629     |
-|              75%              |     3792390     |
-|              100%              |      12727      |
-
-There is quite a big jump from 75% to 50%, so let's go with the 50% min-samples first and use that.
-
-It is best to make the alignment binary (0, 1, 2), so you can run `vcf2phylip` with  the `-b` flag to do this:
-
-```bash
-./vcf2phylip/vcf2phylip.py -i cvos.32.phylogeny.final.nohual.biallelic.thinned.100kb.vcf.gz -b --min-samples-locus 32 --output-prefix 100kb.100p.biallelic-binary
-```
-
-The amount of data in these alignments can be a lot, so we will actually be using [SNAPPER](https://github.com/rbouckaert/snapper), another package in BEAST2, which can help with the computational burden.
-
-### SNAPPER
-
-#### Taxon Sets
-
-* Load an alignment that is a binary, biallelic NEXUS file (from the VCF). Just click the "Guess" option for the Species/Population part of this tab and have it guess based on after the first "_"
-
-#### Model Parameters
-
-* Check Estimate for Coalescent Rate
-* Leave N
-* Uncheck Non-polymorphic
-* Do not touch the Number of sites which were not filtered...
-* Leave Mutation Only at Root unchecked
-* Check Use Log Likelihood Correction
-* Leave Use Beta Root Prior Unchecked
-
-#### Priors
-
-* Yule Model
-* birthRate.t:100kb use an Exponential[1.0] distribution
-* Leave clockRate.c:100kb alone
-* Leave snapperCoalescentRate.t:100kb alone
-
-#### MCMC
-
-* Leave alone for now
-
-### SNAPP
-
-#### Model Parameters:
-
-* Uncheck sample by Mutation Rate U
-* Uncheck include non-ploymorphic sites
-* Uncheck mutaiton only at root
-* Uncheck show pattern likelihoods and quit
-* Check use log likelihood correction
-* Do nothing for root frequencies
-* Click calculate mutation rates
-* Can leave coalescents rate checked for sample
-
-#### Priors
-
-* Close lambda
-
-#### Calibration Points
-
-1. MRCA of all taxa:
-   * Log normal distribution
-   * Set as monophyletic
-   * M = 0
-   * S = 1
-   * Offset = 6.1
-   * Do not check 'Mean in Real Space'
-2. *C. atrox* + *C. ruber*
-   * Log normal distribution
-   * Set as monophyletic
-   * M = 0
-   * S = 1
-   * Offset = 3.2
-   * Do not check 'Mean in Real Space'
-
-#### MCMC Parameters
-
-* Chain Length = 10000000
-* Store Every = 10000
-* Pre Burnin = 0 (We will do a 25% burnin in Tracer)
-* Num Initialization Attempts = 10
-
-Note: If the analysis gets messy and clunky, you can change the 'Log Every = 1000' to be set to 10000.
-
-As of right now, we are running the SNAPPER_TEST_name-change --> snapper_AR_name-change-fail.xml. Got it to run by editing the arguements in the divergence dating prior settings.
-
-For some reason, SNAPPER was not using the renamed Species/Population naming scheme we created in the Taxon Sets tab. It was coming out like this inthe XML file:
-
-```xml
-                <distribution id="AR.prior" spec="beast.base.evolution.tree.MRCAPrior" monophyletic="true" tree="@Tree.t:100kb">
-                    <taxonset id="AR" spec="TaxonSet">
-                        <taxon id="atro1" spec="Taxon"/>
-                        <taxon id="rube1" spec="Taxon"/>
-```
-
-This was causing issues because "atro1" and "rube1" are not in our XML file as Species/Populations, and if you just delete the '1' and run the XML in BEAST, it says there are duplicates of "atro" or "ruber' (which is not true). This is why the taxon labels are swipped, where the species name is first, then an underscore, then the voucher ID; this was me testing out if this would effect anything and how you use the 'Guess' function to change taxon labels in BEAST. It looks like it does not matter, and changing the taxon labels is the problem in the first place (seemingly). I noticed that when I did not change the labels in the Taxon Sets tab, lines 3 and 4 read as:
-
-```xml
-                <distribution id="AR.prior" spec="beast.base.evolution.tree.MRCAPrior" monophyletic="true" tree="@Tree.t:100kb">
-                    <taxonset id="AR" spec="TaxonSet">
-                        <taxon id="atro_CA0346"/>
-                        <taxon id="rube_CR0001"/>
-```
-
-So, I changed the file to read like the following, and this worked:
-
-```xml
-                <distribution id="AR.prior" spec="beast.base.evolution.tree.MRCAPrior" monophyletic="true" tree="@Tree.t:100kb">
-                    <taxonset id="AR" spec="TaxonSet">
-                        <taxon id="atro"/>
-                        <taxon id="rube"/>
-```
-
-Had to use Robin and install BEAST2 using the tar and then use `packagemanager` in BEAST2 to get SNAPP and snapper: `packagemanager -add snapper`
-
-We changed the totalcount="4" to be equal to 3. It said to do 2 for binary but 3 for diploid data, we since we have 3 states I chose that (2 would not work since we have 0,1,2 as our states). Additionally, the analysis was started at 1:26 PM on October 16th
-
-### Some good tutorials and notes for using SNAPP or SNAPPER (divergence dating with SNPs):
-
-* [https://github.com/ForBioPhylogenomics/tutorials/blob/main/divergence_time_estimation_with_snp_data/README.md](https://github.com/ForBioPhylogenomics/tutorials/blob/main/divergence_time_estimation_with_snp_data/README.md)
-* [https://beast2.blogs.auckland.ac.nz/snapp/](https://beast2.blogs.auckland.ac.nz/snapp/)
-* [https://www.beast2.org/download-mac/](https://www.beast2.org/download-mac/)
-* [https://www.biostars.org/p/232646/](https://www.biostars.org/p/232646/)
 
 # Investigating Topological Support Across the Genome with Site-Specific Likelihoods (SSL)
 
