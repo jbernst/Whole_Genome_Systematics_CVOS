@@ -27,4 +27,4 @@ With our genomic datasets, we perform various phylogenetic analyses. These will 
 * Topology weighting was done using the software TWISST in a [custom pipeline](Phylogenetic-Analyses/TopologyWeighting.md).
 
 ### Site Specific Likelihood (SSL) Analysis
-* To determine support for the species vs. alternative topologies at a site-by-site and genomic window basis using our whole genomes, we performed site likehood analysis in `IQTREE2` and then used [custom scripts](SSL for further analysis and visualization.
+* To determine support for the species vs. alternative topologies at a site-by-site and genomic window basis using our whole genomes, we performed site likehood analysis in `IQTREE2` and then used [custom scripts](Site-Likelihood-Analysis/SSL.md) for further analysis and visualization.
