@@ -25,7 +25,7 @@ With our genomic datasets, we perform various phylogenetic analyses. These will 
 * Testing for phylogenetic reticulations was performed using PhyloNet and NANUQ in custom [bash and shell scripts](Phylogenetic-Analyses/ReticulationAnalyses.md).
 * Divergence Dating analyses using TreePL can be found [here](Phylogenetic-Analyses/DivergenceDating.md). For species tree (coalescent) analysis, [ASTRAL-III](https://github.com/smirarab/ASTRAL) was used.
 * Topology weighting was done using the software TWISST in a [custom pipeline](Phylogenetic-Analyses/TopologyWeighting.md).
-
+* Concordance Factor (CF) analysis in IQTREE2 was used to identify predictive power of the species tree using gene/10 kb trees. [Custom R scripts](ConcordanceFactors) were used to visaulize these.
 ### Site Specific Likelihood (SSL) Analysis
 * To determine support for the species vs. alternative topologies at a site-by-site and genomic window basis using our whole genomes, we performed site likehood analysis in `IQTREE2` and then used [custom scripts](Site-Likelihood-Analysis/SSL.md) for further analysis and visualization.
 
