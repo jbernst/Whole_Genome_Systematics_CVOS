@@ -26,8 +26,9 @@ With our genomic datasets, we perform various phylogenetic analyses. These will 
 * Divergence Dating analyses using TreePL can be found [here](Phylogenetic-Analyses/DivergenceDating.md). For species tree (coalescent) analysis, [ASTRAL-III](https://github.com/smirarab/ASTRAL) was used.
 * Topology weighting was done using the software TWISST in a [custom pipeline](Phylogenetic-Analyses/TopologyWeighting.md).
 * Concordance Factor (CF) analysis in IQTREE2 was used to identify predictive power of the species tree using gene/10 kb trees. [Custom R scripts](ConcordanceFactors) were used to visaulize these.
+  
 ### Site Specific Likelihood (SSL) Analysis
-* To determine support for the species vs. alternative topologies at a site-by-site and genomic window basis using our whole genomes, we performed site likehood analysis in `IQTREE2` and then used [custom scripts](Site-Likelihood-Analysis/SSL.md) for further analysis and visualization.
+* To determine support for the species vs. alternative topologies at a site-by-site and genomic window basis using our whole genomes, we performed site likehood analysis in `IQTREE2` and then used [custom scripts](Site-Likelihood-Analysis/) for further analysis and visualization.
 
 ### Analysis of Tree Space and Tree Distances
 * Two methods were used for identifying similarity of trees in tree space. We used the [TreeSpace](https://github.com/thibautjombart/treespace) and Probabilistic Species Tree Distances ([PSTDistanceR](https://github.com/radamsRHA/PSTDistanceR)) R packages for our gene (10 kb) and coalescent trees, respectively, using [custom R scripts](TreeSpace-Analysis). This directory also contains input files needed for the R code.
