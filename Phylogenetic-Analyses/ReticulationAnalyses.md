@@ -46,7 +46,7 @@ done
 
 Interpreting PhyloNet results can be a bit difficult with how the trees and reticulations are plotted, especially in groups that have extensive introgression (like our system here). We can also run NANUQ to valid our findings that reticulations exist by using another analysis. We will use [NANUQ](https://doi.org/10.1186/s13015-019-0159-2) in the R package [MSCquartets](https://cran.r-project.org/web/packages/MSCquartets/index.html). NANUQ performs two hypothesis tests for reticulations on quartets from gene trees. You define an alpha parameter and test if reticulations are a better explanation (rather than a bifurcating tree) for the data. The best practice is to change alpha to a smaller and smaller value to make it "harder" to support reticulations and see if the results are consistent. For this study, we ran the analysis on all chromosomes, just macrochromosomes, just microchromosomes, and the Z chromosome. This was done for all species and then just the *C. oreganus* clade.
 
-Actually running NANUQ is quite easy. An exmaple code is below (and can also be found in the [Phylogenetic-Analyses/NANUQ.R](Phylogenetic-Analyses/NANUQ.R) file:
+Actually running NANUQ is quite easy. An exmaple code is below (and can also be found in the [Phylogenetic-Analyses/NANUQ.R](NANUQ.R) file:
 
 ```R
 setwd("/home/administrator/ExtraSSD2/Justin/Analyses_JMB/NANUQ/all-chrom")
