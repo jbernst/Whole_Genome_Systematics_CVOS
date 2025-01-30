@@ -61,8 +61,6 @@ have been called. Unless noted, the following workflows are for the May 2019 sam
 
 # Mapping to the *C. viridis* genome
 
-[On Norma][On Norma]]: ~/Desktop/ExtraDrive2/CVOS/
-
 We will trim and alig reads to the CroVir3.0 reference genome of *Crotalus viridis* ([Schield et al. 2019](http://www.genome.org/cgi/doi/10.1101/gr.240952.118)).
 
 Set up variant calling pipeline directories:
