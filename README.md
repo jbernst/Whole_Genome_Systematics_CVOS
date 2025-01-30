@@ -31,3 +31,6 @@ With our genomic datasets, we perform various phylogenetic analyses. These will 
 
 ### Analysis of Tree Space and Tree Distances
 * Two methods were used for identifying similarity of trees in tree space. We used the [TreeSpace](https://github.com/thibautjombart/treespace) and Probabilistic Species Tree Distances ([PSTDistanceR](https://github.com/radamsRHA/PSTDistanceR)) R packages for our gene (10 kb) and coalescent trees, respectively, using [custom R scripts](TreeSpace-Analysis). This directory also contains input files needed for the R code.
+
+### Topological Heterogeneity throughout the Genome
+* To analyze the frequency of the species tree and alternative topologies across chromosomes, we used [TWISST](https://github.com/simonhmartin/twisst). Two versions (3 species dataset and the oreganus clade dataset) of the code are provided, with necessary input files. All files can be found here.
