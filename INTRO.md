@@ -5,7 +5,7 @@ This repository contains pipelines and analyses for disentangling conflicting ev
 Whole genome data can be found on the [Sequence Read Archive (SRA)](https://www.ncbi.nlm.nih.gov/sra) under Projects PRJNA1150930 and PRJNA1137891. Specific sampling information can also be found on the SRA, or in [Supplementary Table S1](Supplemental_Tables).
 
 ## Code and Analyses
-This project (accepted in _Molecular Phylogenetics and Evolution_) involves a suite of analyses for identifying biological processes that are correlated with alternative topologies in systematic efforts. A README file for **all** analyses in bash is provided in the [README_CVOS-Phylo_2025.1.29.md file](MASTER_CVOS-WGS_Workflow.md). This will contain a tutorial for the analytical workflow for the entire project. However, below I will subset this into different phases of the project:
+This project (accepted in _Molecular Phylogenetics and Evolution_) involves a suite of analyses for identifying biological processes that are correlated with alternative topologies in systematic efforts. A README file for **all** analyses in bash is provided in the [MASTER_CVOS-WGS_Workflow.md file](MASTER_CVOS-WGS_Workflow.md). This will contain a tutorial for the analytical workflow for the entire project. However, below I will subset this into different phases of the project:
 
 ### Sampling, Genomic Data Processing, and Alignment Generation
 * Information on our sampling scheme, whoe genome data processing and cleaning, and alignment creation and filtering can be found here: [Sampling-Genome-Processing.md](Sampling-Genome-Processing.md).
