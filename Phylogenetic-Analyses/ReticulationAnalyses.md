@@ -28,7 +28,7 @@ InferNetwork_MPL (all) 5 -a <Outgroup:CA0346_atro,CR0001_rube; Sscutulatus:CS014
 END;
 ```
 
-Let's call this one `PhyloNet-ma5-IQ-5R.nex` (to symbolize the use of `PhyloNet` on IQ-TREE trees with a maximum of 5 reticulations allowed in our analysis); the PhyloNet input and output files are all stored on Norma (`/home/administrator/Desktop/ExtraSSD2/Justin/phylogeny/PHYLONET`).
+Let's call this one `PhyloNet-ma5-IQ-5R.nex` (to symbolize the use of `PhyloNet` on IQ-TREE trees with a maximum of 5 reticulations allowed in our analysis).
 
 To run the analysis, you simpled call upon the PhyloNet .jar file and give it the input file:
 
