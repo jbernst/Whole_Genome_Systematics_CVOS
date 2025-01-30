@@ -1,0 +1,73 @@
+ma2
+  gene     sum.delta.ssl.gene
+  <chr>                 <dbl>
+1 ATP5F1B                8.19
+2 COX11                 10.6 
+3 NDUFB11              -23.9 
+4 ATP6V1A               -1.05
+5 NDUFS4                 2.69
+6 UQCRC1               -11.7 
+7 ATP6V0E1               1.19
+8 COX10                 -5.63
+9 ATP5PD                12.2 
+
+ma3
+  gene     sum.delta.ssl.gene
+  <chr>                 <dbl>
+1 ATP6V0B              -7.85 
+2 ATP5PB                0.606
+3 ATP6V1C1             29.4  
+4 UQCRB                34.7  
+5 ATP6V0D1              5.17 
+6 ATP6V1H              38.3  
+7 NDUFS6               32.5  
+8 NDUFA2                0.234
+
+ma4
+  gene   sum.delta.ssl.gene
+  <chr>               <dbl>
+1 ATP4B                1.22
+2 ATP5PO             -12.1 
+
+ma5
+  gene  sum.delta.ssl.gene
+  <chr>              <dbl>
+1 PPA1               91.7 
+2 LHPP               -2.23
+3 COX15             -12.1 
+
+ma6
+  gene     sum.delta.ssl.gene
+  <chr>                 <dbl>
+1 ATP6AP1                1.00
+2 NDUFA12               30.1 
+3 ATP6V0A4              12.4 
+4 NDUFB2                 5.69
+5 ATP6V1E1             -21.3 
+
+ma7
+  gene  sum.delta.ssl.gene
+  <chr>              <dbl>
+1 PPA2               -56.3
+
+mi1
+1 SDHD                 11.5  
+2 ATP12A                0.368
+3 ATP6V1B2            -40.4  
+
+mi2
+  gene   sum.delta.ssl.gene
+  <chr>               <dbl>
+1 ATP4A               0.343
+2 ATP12A             12.3  
+
+mi5
+  gene    sum.delta.ssl.gene
+  <chr>                <dbl>
+1 ATP6V0C               5.69
+
+mi8
+ gene     sum.delta.ssl.gene
+  <chr>                 <dbl>
+1 ATP6V0A2              -33.6
+2 ATP6V0D1               45.2
