@@ -30,4 +30,4 @@ With our genomic datasets, we perform various phylogenetic analyses. These will 
 * To determine support for the species vs. alternative topologies at a site-by-site and genomic window basis using our whole genomes, we performed site likehood analysis in `IQTREE2` and then used [custom scripts](Site-Likelihood-Analysis/SSL.md) for further analysis and visualization.
 
 ### Analysis of Tree Space and Tree Distances
-* Two methods were used for identifying similarity of trees in tree space. We used the TreeSpace and Probabilistic Species Tree Distances (PSTD) R packages for our gene (10 kb) and coalescent trees, respectively, using [custom R scripts](TreeSpace-Analysis). This directory also contains input files needed for the R code.
+* Two methods were used for identifying similarity of trees in tree space. We used the [TreeSpace](https://github.com/thibautjombart/treespace) and Probabilistic Species Tree Distances ([PSTDistanceR](https://github.com/radamsRHA/PSTDistanceR)) R packages for our gene (10 kb) and coalescent trees, respectively, using [custom R scripts](TreeSpace-Analysis). This directory also contains input files needed for the R code.
