@@ -1,7 +1,7 @@
 # Sampling
 
 This section of the `README` file contains details about the data processing and analysis for our whole
-genome phylogeny for the western rattlesnake species complex. This part of the `README` file and up to the (this section to 'Maximum Likelihood Tree Reconstruction (IQ-TREE2)') was created by Drew Schield.
+genome phylogeny for the western rattlesnake species complex. This `README` file was created by Drew Schield.
 
 We chose 34 samples total to use for whole genome sequencing, including two represenatives of each of the major CVOS lineages (2 lineages each for *viridis* group and *oreganus* group), and *C. atrox*
 and *C. ruber* as outgroups. We did not include *C. oreganus hualapaiensis* here.
