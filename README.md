@@ -39,4 +39,9 @@ With our genomic datasets, we perform various phylogenetic analyses. These will 
 ## Citation
 If using or modifying the custom scripts from this repository, please cite the original paper in _Molecular Phylogenetics and Evolution_ (_in press_) and this Github Repository using the DOI:[![DOI](https://zenodo.org/badge/924474668.svg)](https://doi.org/10.5281/zenodo.14774372)
 
+Source Paper: Bernstein, J. M., Francioli, Y. Z., Schield, D. R., Adams, R. H., Perry, B. W., Farleigh, K., Smith, C. F., Meik, J. M., Mackessy, S. P., and Castoe, T. A."Disentangling a genome-wide mosaic of conflicting phylogenetic signals in Western Rattlesnakes. Molecular Phylogenetics and Evolution (2025): 108309.
+
+Paper DOI: [https://doi.org/10.1016/j.ympev.2025.108309](https://doi.org/10.1016/j.ympev.2025.108309)
+
+
 ![Screenshot 2025-01-30 014314](https://github.com/user-attachments/assets/7bcae5ad-bc6b-4444-beab-b2dfcb992398)
